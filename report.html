@@ -13823,6 +13823,8 @@ TkSuQmCC
 <p><strong>Answer: </strong></p>
 <p>Grid search, or a parameter sweep, is an exhaustive searching through a manually specified subset of the hyperparameter space of a learning algorithm.</p>
 <p>Hyperparameters are parameters whose values are set prior to the commencement of the learning process. By contrast, the value of other parameters is derived via training.</p>
+<p>Hyperparameter optimization or model selection is the problem of choosing a set of optimal hyperparameters for a learning algorithm, usually with the goal of optimizing a measure of the algorithm's performance on an independent data set. Often cross-validation is used to estimate this generalization performance.</p>
+<p>Learning algorithms learn parameters that model/reconstruct their inputs well, while hyperparameter optimization is to ensure the model does not.</p>
 <p>A grid search algorithm must be guided by some performance metric, typically measured by cross-validation on the training set or evaluation on a held-out validation set.</p>
 
 </div>
@@ -13891,7 +13893,7 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;make_scorer&#39;, &#39;DecisionTreeRegressor&#39;, and &#39;GridSearchCV&#39;</span>
@@ -13913,10 +13915,6 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 
     <span class="c1"># TODO: Create a dictionary for the parameter &#39;max_depth&#39; with a range from 1 to 10</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))}</span>
-    <span class="c1">#key = &#39;max_depth&#39;</span>
-    <span class="c1">#params.setdefault(key, [])</span>
-    <span class="c1">#for i in range(10):</span>
-    <span class="c1">#    params[key].append(i+1)</span>
 
     <span class="c1"># TODO: Transform &#39;performance_metric&#39; into a scoring function using &#39;make_scorer&#39; </span>
     <span class="n">scoring_fnc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">performance_metric</span><span class="p">)</span>
@@ -14002,6 +14000,7 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 <p><strong> Hint: </strong> The answer comes from the output of the code snipped above.</p>
 <p><strong>Answer: </strong></p>
 <p>Parameter 'max_depth' is 4 for the optimal model.</p>
+<p>I guessed that a max depth of 3 would be optimal from the graph presented in question 6. This was pretty close to the optimal model output of max depth = 4, so there must have been minor improvement in validation score with a max depth of 4 which was hard to see on the chart.</p>
 
 </div>
 </div>
